@@ -1,5 +1,14 @@
 #!/bin/bash
 
+########################################
+####     the100.io Grimoire v2.2    ####
+#### Scrapes member list from group ####
+####  Calls Bungie API to get grim  ####
+#### 	  the100:  /u/L0r3          ####
+####      Reddit:  /u/L0r3_Titan    ####
+####      Twitter: @L0r3_Titan      ####
+########################################
+
 clear
 
 #### NUMBER AND NAME OF A GRIM CARD ####
