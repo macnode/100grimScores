@@ -23,6 +23,7 @@ Launch it with the required command line arguments of group ID:<br>
 
 # REQUIRED FILES
 apiKey.sh: Get a Bungie API key and insert in file (https://www.bungie.net/en/User/API)<br>
+hundredMembers.sh: Scrapes list of members from 100group
 grimScores.sh: Primary script<br>
 
 # ABOUT apiKey.sh #
