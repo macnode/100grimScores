@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ########################################
-####     the100.io Members v2.4     ####
+####     the100.io Members v2.5     ####
 #### Scrapes member list from group ####
 #### 	  the100:  /u/L0r3          ####
 ####      Reddit:  /u/L0r3_Titan    ####

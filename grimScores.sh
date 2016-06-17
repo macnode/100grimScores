@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ########################################
-####     the100.io Grimoire v2.4    ####
+####     the100.io Grimoire v2.5    ####
 ####  Calls Bungie API to get grim  ####
 #### 	  the100:  /u/L0r3          ####
 ####      Reddit:  /u/L0r3_Titan    ####
