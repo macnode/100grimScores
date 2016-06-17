@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ########################################
-####     the100.io Grimoire v2.3    ####
+####     the100.io Grimoire v2.4    ####
 ####  Calls Bungie API to get grim  ####
 #### 	  the100:  /u/L0r3          ####
 ####      Reddit:  /u/L0r3_Titan    ####
@@ -21,24 +21,16 @@ source ${BASH_SOURCE[0]/%grimScores.sh/hundredMembers.sh}
 grimID=`echo $currentCard | sed 's/,.*[^,]*//'`
 grimName=`echo $currentCard | rev | sed 's/,.*[^,]*//' | rev`
 
-#######################################
-#### BEGIN 100 MEMBER LIST SECTION ####
-#######################################
-
+#### CALL FUNCTION TO SCRAPE THE100 MEMBERS ####
 hundredMembers
-# outputs data to /tmp/100_users.txt
-# outputs data to /tmp/100_usersClean.txt
 
-#####################################
-#### END 100 MEMBER LIST SECTION ####
-#####################################
-
+#### XBOX OR PSN ####
 selectedAccountType='1'
+
+#### SOURCE OF USERS TO PROCESS (this is produced by scraper) ####
 playerList="/tmp/100_usersClean.txt"
-echo
 
-
-### MEMBER ID ###
+#### MEMBER ID ####
 funcMemID ()
 {
 getUser=`curl -s -X GET \
@@ -56,28 +48,23 @@ grimAll=`curl -s -X GET \
 #echo "grimAll: $grimAll"
 }
 
+#### LOOP THROUGH MEMBERS TO GET SCORES FROM BUNGIE ####
+echo; echo "#### GETTING SCORES FROM BUNGIE, PLEASE WAIT ####"
 let playerCnt='0'
-
 while read 'player'; do
 	funcMemID
 	funcGrimAll
 	grimCurrent=`echo "$grimAll" | grep -o 'score":.*'| sed 's/cardCollection.*[^cardCollection]*//' | cut -c 8- | rev | cut -c 3- | rev`
 	scorePlayer="$grimCurrent,$player"
-	echo "echo out the progress here"
 	let playerCnt=playerCnt+1
 	grimArr[$playerCnt]="$scorePlayer"
 done < "$playerList"
 
-
+#### SORT SCORES HIGHEST TO LOWEST ####
 function arrSort 
 { for i in ${grimArr[@]}; do echo "$i"; done | sort -n -r -s ; }
-
-
 grimScoresSort=( $(arrSort) )
 printf '%s\n' "${grimScoresSort[@]}"
 
-
+echo; echo
 exit
-
-
-

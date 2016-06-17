@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ########################################
-####     the100.io Members v2.3     ####
+####     the100.io Members v2.4     ####
 #### Scrapes member list from group ####
 #### 	  the100:  /u/L0r3          ####
 ####      Reddit:  /u/L0r3_Titan    ####
@@ -12,11 +12,13 @@
 #### BEGIN 100 MEMBER LIST SECTION ####
 #######################################
 
+the100group="$1"
+
 hundredMembers ()
 {
 
 #### CHECK IF 100 GROUP ID PARAMETER ENTERED ON LAUNCH ####
-the100group="$1"
+#the100group="$1"
 
 if [ -z "$the100group" ]
 then
@@ -27,22 +29,23 @@ then
 	echo
 	exit
 else
-	echo; echo "Processing: https://the100.io/groups/$the100group"
+	echo; echo; echo "#### PROCESSING: https://the100.io/groups/$the100group ####"
 fi
 
-echo; echo "Deleting old temporary files"
+echo; echo; echo "#### DELETING OLD TEMP FILES, ERRORS ARE NORMAL ####"
 rm '/tmp/membPage1.txt'
 rm '/tmp/membRawA.txt'
 rm '/tmp/membRawB.txt'
 rm '/tmp/membRawC.txt'
 rm '/tmp/100_users.txt'
 rm '/tmp/100_usersClean.txt'
-echo
 
 #### GET NUMER OF MEMBER PAGES TO PROCESS FROM THE100 ###
+echo; echo; echo "#### GETTING INITIAL PAGE TO FIND PAGE COUNT ####"
 curl -o '/tmp/membPage1.txt' "https://www.the100.io/groups/$the100group?page=1"
 pagesLine=`grep 'Last &raquo' '/tmp/membPage1.txt' | tail -n1`
 memberPages=`echo "$pagesLine" | sed 's/raquo.*[^raquo]*//' | rev | cut -c 9- | sed 's/egap.*[^egap]*//' | rev | cut -c 2-`
+echo; echo; echo "#### GETTING $memberPages PAGES OF MEMBERS ####"
 let memberPages=$memberPages+'1'
 
 #### LOOP TO CURL THE100 MEMBER PAGES TO FILE ####
@@ -77,13 +80,16 @@ rm '/tmp/membRawB.txt'
 rm '/tmp/membRawC.txt'
 
 #### DONE ####
-echo
-echo "Done creating member list"
+echo; echo; echo "#### MEMBER LIST CREATION DONE ####"
 echo "Members clean names: '/tmp/100_users.txt'"
 echo "Members web names: '/tmp/100_usersClean.txt'"
+echo
 
 }
 
 #####################################
 #### END 100 MEMBER LIST SECTION ####
 #####################################
+
+#### UNCOMMENT LINE BELOW TO USE AS STAND ALONE MEMBER SCRAPER ####
+# hundredMembers
