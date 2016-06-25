@@ -68,4 +68,3 @@ printf '%s\n' "${grimScoresSort[@]}"
 
 echo; echo
 exit
-
