@@ -11,8 +11,6 @@ Next it will call the Bungie API and get the total grimoire score for each membe
 Beta<br>
 No error handling yet<br>
 Works for me where expected<br>
-Last bit of core work is to automate number of pages to scrape for users<br>
-Its hard coded at '9' for now<br>
 Find your group number in the URL when viewing your groups the100 page<br>
 https://www.the100.io/groups/1412<br>
 
