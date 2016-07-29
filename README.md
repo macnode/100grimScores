@@ -4,8 +4,8 @@ Twitter: @L0r3_Titan<br>
 XB1 GT: L0r3<br>
 
 # WHAT IS THIS JUNK? #
-Script will scrape list of member from the the100.io for group ID you specify<br>
-Next it will call the Bungie API and get the total grimoire score for each member<br>
+Gets a list of members of the group you specify from the100.io API<br>
+Calls Bungie API, gets total grimoire score for each member<br>
 
 # WHAT STATE IS IT IN? #
 Beta<br>
@@ -20,14 +20,11 @@ Launch it with the required command line arguments of group ID:<br>
 ./grimScores.sh 1412<br>
 
 # REQUIRED FILES
-apiKey.sh: Get a Bungie API key and insert in file (https://www.bungie.net/en/User/API)<br>
-hundredMembers.sh: Scrapes list of members from 100group
+apiKeys.sh: the100 and Bungie API keys go in this file<br>
+hundredMembers.sh: Gets list of group members from the100 API<br>
 grimScores.sh: Primary script<br>
 
-# ABOUT apiKey.sh #
-Get yourself an API key at Bungie.net<br>
-Place it in the file<br>
-Thats all<br>
+
 <br>
 <br>
 "I dont have time to explain why I dont have time to explain" --The Stranger<br>
