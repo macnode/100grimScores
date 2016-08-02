@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ########################################
-####     the100.io Members v3.1     ####
+####     the100.io Members v3.3     ####
 #### Get the100.io members from API ####
 #### 	  the100:  /u/L0r3          ####
 ####      Reddit:  /u/L0r3_Titan    ####
@@ -68,7 +68,7 @@ IFS="$oIFS"
 
 #### PRINT MEMBER LIST ####
 totalMembers=`echo ${#arrMembers[*]}`
-echo; echo "### Group $the100group total members: $totalMembers ###"
+echo "### Group $the100group total members: $totalMembers ###"
 theList=`printf '%s\n' "${arrMembers[@]}" | sed 's/%20/ /g'`
 #echo "$theList"
 
